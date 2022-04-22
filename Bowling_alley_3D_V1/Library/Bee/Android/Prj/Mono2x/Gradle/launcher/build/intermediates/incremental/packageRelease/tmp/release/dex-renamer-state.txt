@@ -1,0 +1,4 @@
+#Fri Apr 22 19:00:38 IST 2022
+base.0=D\:\\IIIT Hyd\\2nd Sem\\Yash\\SE\\Bowling_alley_3D_V1\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
