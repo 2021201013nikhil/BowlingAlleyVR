@@ -5,15 +5,13 @@ ScriptsOnlyBuild:
     - GameMenu
     - HighScore
     - MainMenu
+    - TopScore
     - ball
     - strike
     Unity.InputSystem.dll:
-    - UnityEngine.InputSystem.InputActionAsset
-    - UnityEngine.InputSystem.InputActionReference
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
-    - UnityEngine.InputSystem.XR.TrackedPoseDriver
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -28,8 +26,6 @@ ScriptsOnlyBuild:
     Unity.XR.Interaction.Toolkit.Editor.dll:
     - UnityEditor.XR.Interaction.Toolkit.XRInteractionEditorSettings
     Unity.XR.Interaction.Toolkit.dll:
-    - UnityEngine.XR.Interaction.Toolkit.ActionBasedController
-    - UnityEngine.XR.Interaction.Toolkit.Inputs.InputActionManager
     - UnityEngine.XR.Interaction.Toolkit.InteractionLayerSettings
     - UnityEngine.XR.Interaction.Toolkit.UI.TrackedDeviceGraphicRaycaster
     - UnityEngine.XR.Interaction.Toolkit.UI.XRUIInputModule
@@ -61,13 +57,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
-    Unity.InputSystem:
-    - UnityEngine.InputSystem.InputAction
-    - UnityEngine.InputSystem.InputActionMap
-    - UnityEngine.InputSystem.InputActionProperty
-    - UnityEngine.InputSystem.InputBinding
-    - UnityEngine.InputSystem.InputControlScheme
-    - UnityEngine.InputSystem.InputControlScheme/DeviceRequirement
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
     - TMPro.FontAssetCreationSettings
@@ -113,15 +102,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
-    fullTypeName: GameMenu
-    methodName: QuitGame
-  - assembly: Assembly-CSharp
-    fullTypeName: GameMenu
-    methodName: Restart
-  - assembly: Assembly-CSharp
-    fullTypeName: GameMenu
-    methodName: MainMenu
-  - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: CloseHighScore
   - assembly: Assembly-CSharp
@@ -132,10 +112,25 @@ ScriptsOnlyBuild:
     methodName: OpenHighScore
   - assembly: Assembly-CSharp
     fullTypeName: MainMenu
+    methodName: CloseTopScore
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
     methodName: ResetHighScore
   - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
+    methodName: OpenTopScores
+  - assembly: Assembly-CSharp
+    fullTypeName: GameMenu
+    methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: GameMenu
+    methodName: Restart
+  - assembly: Assembly-CSharp
+    fullTypeName: GameMenu
+    methodName: MainMenu
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -156,8 +151,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 64
@@ -177,61 +170,51 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1570}
+      Script: {instanceID: 1568}
     - Class: 114
-      Script: {instanceID: 1954}
+      Script: {instanceID: 1952}
     - Class: 114
-      Script: {instanceID: 2366}
+      Script: {instanceID: 2478}
     - Class: 114
-      Script: {instanceID: 2480}
+      Script: {instanceID: 2898}
     - Class: 114
-      Script: {instanceID: 2900}
+      Script: {instanceID: 3146}
     - Class: 114
-      Script: {instanceID: 3148}
+      Script: {instanceID: 3494}
     - Class: 114
-      Script: {instanceID: 3496}
+      Script: {instanceID: 3940}
     - Class: 114
-      Script: {instanceID: 3942}
+      Script: {instanceID: 4014}
     - Class: 114
-      Script: {instanceID: 4016}
+      Script: {instanceID: 4376}
     - Class: 114
-      Script: {instanceID: 4290}
+      Script: {instanceID: 4478}
     - Class: 114
-      Script: {instanceID: 4378}
+      Script: {instanceID: 5164}
     - Class: 114
-      Script: {instanceID: 4480}
+      Script: {instanceID: 5588}
     - Class: 114
-      Script: {instanceID: 4670}
+      Script: {instanceID: 6006}
     - Class: 114
-      Script: {instanceID: 4798}
+      Script: {instanceID: 6346}
     - Class: 114
-      Script: {instanceID: 5110}
+      Script: {instanceID: 6420}
     - Class: 114
-      Script: {instanceID: 5166}
+      Script: {instanceID: 6470}
     - Class: 114
-      Script: {instanceID: 5590}
+      Script: {instanceID: 6720}
     - Class: 114
-      Script: {instanceID: 6008}
+      Script: {instanceID: 6900}
     - Class: 114
-      Script: {instanceID: 6348}
+      Script: {instanceID: 6948}
     - Class: 114
-      Script: {instanceID: 6422}
+      Script: {instanceID: 7220}
     - Class: 114
-      Script: {instanceID: 6468}
+      Script: {instanceID: 7820}
     - Class: 114
-      Script: {instanceID: 6718}
+      Script: {instanceID: 7860}
     - Class: 114
-      Script: {instanceID: 6898}
-    - Class: 114
-      Script: {instanceID: 6946}
-    - Class: 114
-      Script: {instanceID: 7218}
-    - Class: 114
-      Script: {instanceID: 7816}
-    - Class: 114
-      Script: {instanceID: 7856}
-    - Class: 114
-      Script: {instanceID: 9208}
+      Script: {instanceID: 9214}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -267,6 +250,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
@@ -276,49 +261,55 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1570}
+      Script: {instanceID: 1568}
     - Class: 114
-      Script: {instanceID: 1886}
+      Script: {instanceID: 1952}
     - Class: 114
-      Script: {instanceID: 1954}
+      Script: {instanceID: 2364}
     - Class: 114
-      Script: {instanceID: 2900}
+      Script: {instanceID: 2898}
     - Class: 114
-      Script: {instanceID: 3148}
+      Script: {instanceID: 3146}
     - Class: 114
-      Script: {instanceID: 3496}
+      Script: {instanceID: 3494}
     - Class: 114
-      Script: {instanceID: 4296}
+      Script: {instanceID: 4288}
     - Class: 114
-      Script: {instanceID: 4378}
+      Script: {instanceID: 4376}
     - Class: 114
-      Script: {instanceID: 4480}
+      Script: {instanceID: 4478}
     - Class: 114
-      Script: {instanceID: 5590}
+      Script: {instanceID: 4668}
     - Class: 114
-      Script: {instanceID: 6008}
+      Script: {instanceID: 4796}
     - Class: 114
-      Script: {instanceID: 6348}
+      Script: {instanceID: 5108}
     - Class: 114
-      Script: {instanceID: 6578}
+      Script: {instanceID: 5588}
     - Class: 114
-      Script: {instanceID: 6718}
+      Script: {instanceID: 6006}
     - Class: 114
-      Script: {instanceID: 6898}
+      Script: {instanceID: 6346}
     - Class: 114
-      Script: {instanceID: 6946}
+      Script: {instanceID: 6470}
     - Class: 114
-      Script: {instanceID: 7218}
+      Script: {instanceID: 6720}
     - Class: 114
-      Script: {instanceID: 7754}
+      Script: {instanceID: 6900}
     - Class: 114
-      Script: {instanceID: 7816}
+      Script: {instanceID: 6948}
     - Class: 114
-      Script: {instanceID: 8000}
+      Script: {instanceID: 7220}
     - Class: 114
-      Script: {instanceID: 8922}
+      Script: {instanceID: 7808}
     - Class: 114
-      Script: {instanceID: 9208}
+      Script: {instanceID: 7820}
+    - Class: 114
+      Script: {instanceID: 7860}
+    - Class: 114
+      Script: {instanceID: 8004}
+    - Class: 114
+      Script: {instanceID: 9214}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -790,7 +781,7 @@ ScriptsOnlyBuild:
     className: XRGeneralSettings
   - hash:
       serializedVersion: 2
-      Hash: 27ec3360f0c0a6803ba71cc3106480b8
+      Hash: da4cc51a02ce84afe2cecd27cfe6997a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshPro
@@ -1240,7 +1231,7 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: 8196c5f94ffc378c2319e7b2ee116419
+      Hash: 97d19b7e75e6f139df3ca7a62ee8788b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1468,6 +1459,12 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
+      Hash: 5cc3537ce44942f3cd5142cbd8e39534
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TopScore
+  - hash:
+      serializedVersion: 2
       Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1510,7 +1507,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: f1e9ae937f402397ccfd41a262de73ba
+      Hash: ba7a58a9a7917e13e759e1b9f0f9a8e9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainMenu
@@ -1556,6 +1553,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.Interaction.Toolkit.dll
     namespaceName: UnityEngine.XR.Interaction.Toolkit
     className: XRSimpleInteractable
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TopScores
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1780,6 +1783,6 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Game.unity
   - Assets/Scenes/MainMenu.unity
-  playerPath: C:/Users/siddh/Desktop/Bowling_yash/nikhil.apk
+  - Assets/Scenes/Game.unity
+  playerPath: /home/rohit/Documents/platform-tools/c15.apk

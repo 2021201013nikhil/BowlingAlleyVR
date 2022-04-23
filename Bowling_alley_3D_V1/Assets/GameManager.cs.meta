@@ -3,7 +3,13 @@ guid: 49b85cd3f72a7e6059c108719d091b8b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ball: {instanceID: 0}
+  - scoreUI: {instanceID: 0}
+  - highScore: {fileID: 11400000, guid: 748c22c448dd82f91a12767e520f9ce7, type: 2}
+  - topScore: {fileID: 11400000, guid: e45204f398b7a75f3bcb9bfcdceb363d, type: 2}
+  - tp: {instanceID: 0}
+  - menu: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

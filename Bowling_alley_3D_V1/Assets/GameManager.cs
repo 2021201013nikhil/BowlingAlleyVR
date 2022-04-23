@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.IO;
+using System;
 public class GameManager : MonoBehaviour
 {
 	//Move the ball
@@ -15,14 +16,25 @@ public class GameManager : MonoBehaviour
 	int turnCounter = 0;
 	public Text scoreUI;
 	
+	string tscores="";
+	
 	Vector3[] positions;
 	public HighScore highScore; 
+	public TopScore topScore;
 	
-	public GameObject menu;
+	public TopScores tp;
+	string myfile = "";
 	
     // Start is called before the first frame update
     void Start()
     {
+    	topScore = new TopScore();
+    	tp = new TopScores();
+    	myfile = Application.persistentDataPath + "/scores.txt";
+    	if(!File.Exists(myfile))
+    	{
+    		FileStream fs = File.Create(myfile);
+    	}
         pins = GameObject.FindGameObjectsWithTag("Pin");
         positions = new Vector3[pins.Length];
         
@@ -41,8 +53,16 @@ public class GameManager : MonoBehaviour
         	turnCounter++;
         	ResetPins();
         	
-        	if(turnCounter == 10) {
-        		menu.SetActive(true);
+        	if(turnCounter == 2) {
+        	    	tscores = tp.Scores(score);
+        	    	using (StreamWriter sw = File.AppendText(myfile)){
+        	    		sw.WriteLine(tscores.ToString());
+        	    	}
+        	    	
+    			topScore.topScore = tscores;
+    			Debug.Log("tsco = "+ topScore.topScore);
+    			turnCounter = 0;
+    			score=0;
         	}
         }
     }
@@ -68,6 +88,7 @@ public class GameManager : MonoBehaviour
     	if(score > highScore.highScore) {
     		highScore.highScore = score;
     	}
+    	    	
     	Debug.Log(highScore.highScore);
     }
     
